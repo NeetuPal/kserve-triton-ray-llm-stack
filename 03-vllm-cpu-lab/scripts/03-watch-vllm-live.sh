@@ -13,6 +13,15 @@ NAMESPACE="vllm-cpu-lab"
 DEPLOY="vllm-opt125m-cpu"
 LABEL="app=vllm-opt125m-cpu"
 
+# kubectl -l can return several pods (failed/evicted old replicas + new one). Phase of
+# `.items[0]` is undefined order — often the Failed row is first and the script exits
+# while the newest pod is still pulling the image. Always follow the newest pod.
+newest_pod_name() {
+  kubectl get pods -n "$NAMESPACE" -l "$LABEL" \
+    --sort-by=.metadata.creationTimestamp \
+    -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' 2>/dev/null | tail -n 1
+}
+
 echo "=============================================="
 echo "  Step 3: Live vLLM startup (real-time)"
 echo "=============================================="
@@ -32,15 +41,24 @@ done
 
 echo ""
 echo "[Phase] Pod status until Running (Ctrl+C to skip ahead to logs)..."
+echo "       (Using newest pod by creation time if several exist.)"
 while true; do
-  PHASE=$(kubectl get pods -n "$NAMESPACE" -l "$LABEL" -o jsonpath='{.items[0].status.phase}' 2>/dev/null || echo "Pending")
-  READY=$(kubectl get pods -n "$NAMESPACE" -l "$LABEL" -o jsonpath='{.items[0].status.containerStatuses[0].ready}' 2>/dev/null || echo "false")
-  echo "$(date -u +"%H:%M:%SZ")  phase=$PHASE  ready=$READY"
+  POD="$(newest_pod_name)"
+  if [[ -z "$POD" ]]; then
+    echo "$(date -u +"%H:%M:%SZ")  (no pod yet)"
+    sleep 4
+    continue
+  fi
+  PHASE=$(kubectl get pod "$POD" -n "$NAMESPACE" -o jsonpath='{.status.phase}' 2>/dev/null || echo "Pending")
+  READY=$(kubectl get pod "$POD" -n "$NAMESPACE" -o jsonpath='{.status.containerStatuses[0].ready}' 2>/dev/null || echo "false")
+  echo "$(date -u +"%H:%M:%SZ")  pod=$POD  phase=$PHASE  ready=$READY"
   if [[ "$PHASE" == "Running" ]]; then
     break
   fi
   if [[ "$PHASE" == "Failed" ]] || [[ "$PHASE" == "Unknown" ]]; then
-    echo "Pod not healthy. Check: kubectl describe pod -n $NAMESPACE -l $LABEL"
+    echo "Pod not healthy. Check:"
+    echo "  kubectl describe pod -n $NAMESPACE $POD"
+    echo "  kubectl logs -n $NAMESPACE $POD --previous   # if restart loop"
     exit 1
   fi
   sleep 4

@@ -202,6 +202,7 @@ If your node pool is **arm64**, edit the image in `vllm-cpu.yaml` to:
 
 | Symptom | Likely cause |
 |---------|----------------|
+| `./03-watch-vllm-live.sh` prints `phase=Failed` right away | Often a **stale** pod: an old replica is **Failed** (evicted/OOM) while the **new** pod is still starting. The watch script now picks the **newest** pod by time; upgrade the script from the repo or run `kubectl get pods -n vllm-cpu-lab -l app=vllm-opt125m-cpu --sort-by=.metadata.creationTimestamp` and `kubectl describe pod` on the **last** name. |
 | `OOMKilled` | Raise node RAM or lower `--max-model-len`, `--max-num-seqs`, or `VLLM_CPU_KVCACHE_SPACE`. |
 | Pod stays `Pending` | Not enough CPU/memory on any node; scale node group or relax `resources`. |
 | Very long `ContainerCreating` | Large image pull; wait or use image pull on a larger node / mirror. |

@@ -1,0 +1,9 @@
+# Core (latency/cost + batch eval + feedback CLI)
+openai>=1.40.0
+
+# Optional — LLM Observability UI + traces (see README "Hands-on: Phoenix")
+# pip install -r requirements-optional.txt
+#
+# openinference-instrumentation-openai
+# opentelemetry-sdk
+# opentelemetry-exporter-otlp-proto-grpc

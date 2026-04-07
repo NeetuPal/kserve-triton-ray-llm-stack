@@ -12,6 +12,7 @@
 | [02-triton-lab](./02-triton-lab/) | Serve ONNX models with NVIDIA Triton (Iris + Sentiment NLP) | ✅ Ready |
 | [03-vllm-cpu-lab](./03-vllm-cpu-lab/) | Run **vLLM** (OpenAI API) on **CPU**; includes **eksctl** create/delete + live log demo | ✅ Ready |
 | [04-ray-kuberay-lab](./04-ray-kuberay-lab/) | **Ray** on EKS via **KubeRay** (`RayCluster`), Dashboard + `@ray.remote` test | ✅ Ready |
+| [05-llm-monitoring-lab](./05-llm-monitoring-lab/) | **LLM monitoring** (standalone): quality, latency/cost, feedback, **Phoenix** + **Langfuse** deploy steps, optional Prometheus scrape | ✅ Ready |
 
 ---
 

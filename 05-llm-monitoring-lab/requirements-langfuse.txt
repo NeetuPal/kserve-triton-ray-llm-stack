@@ -1,0 +1,5 @@
+# Langfuse OpenAI drop-in (see examples/langfuse_openai_trace.py)
+# Env: LANGFUSE_PUBLIC_KEY, LANGFUSE_SECRET_KEY, LANGFUSE_BASE_URL
+# Self-hosted UI: https://langfuse.com/self-hosting/deployment/docker-compose → http://localhost:3000
+openai>=1.40.0
+langfuse>=3.0.0

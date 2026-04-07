@@ -1,0 +1,7 @@
+# Phoenix UI + OTLP (gRPC 4317) for examples/phoenix_openai_trace.py
+#   docker compose -f deploy/docker-compose.phoenix.yaml up
+#   or: docker run --rm -p 6006:6006 -p 4317:4317 arizephoenix/phoenix:latest
+openai>=1.40.0
+openinference-instrumentation-openai>=0.1.10
+opentelemetry-sdk>=1.26.0
+opentelemetry-exporter-otlp-proto-grpc>=1.26.0

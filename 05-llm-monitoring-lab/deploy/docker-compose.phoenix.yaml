@@ -1,0 +1,12 @@
+# Arize Phoenix — UI + OTLP gRPC (used by examples/phoenix_openai_trace.py)
+# Run from repo root or this folder:
+#   docker compose -f 05-llm-monitoring-lab/deploy/docker-compose.phoenix.yaml up
+#
+# UI:  http://localhost:6006
+# OTLP gRPC: localhost:4317
+services:
+  phoenix:
+    image: arizephoenix/phoenix:latest
+    ports:
+      - "6006:6006"
+      - "4317:4317"
