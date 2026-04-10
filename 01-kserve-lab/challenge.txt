@@ -48,7 +48,7 @@ Error from server (InternalError): Internal error occurred: failed calling webho
 
 
 =======================
-
+ANSWER----------skip to to have rawDeployment for webhook part skip as bydefault it takes knative.
 
 
 📁 Creating istio-system namespace...
@@ -72,3 +72,4 @@ Error: UPGRADE FAILED: conflict occurred while applying object /istiod-default-v
 (base) ➜  scripts git:(main) ✗ ./run-all.sh
 
 ==============
+ANSWER -------delete all validating and mutating webhooks which already created
