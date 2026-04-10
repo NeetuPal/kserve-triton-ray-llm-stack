@@ -1,0 +1,30 @@
+2026-04-10 11:34:45 [ℹ]  waiting for CloudFormation stack "eksctl-kserve-lab-nodegroup-cpu-workers"
+2026-04-10 11:34:45 [!]  1 error(s) occurred and cluster hasn't been created properly, you may wish to check CloudFormation console
+2026-04-10 11:34:45 [ℹ]  to cleanup resources, run 'eksctl delete cluster --region=ap-south-1 --name=kserve-lab'
+2026-04-10 11:34:45 [✖]  waiter state transitioned to Failure
+Error: failed to create cluster "kserve-lab"
+(base) Neetus-Laptop:scripts neetupal$ ./run-all.sh
+
+
+
+
+=====================
+
+📁 Creating cert-manager namespace...
+namespace/cert-manager created
+
+🔧 Installing cert-manager v1.14.5 via Helm...
+   (This installs CRDs + controller + webhook)
+
+Release "cert-manager" does not exist. Installing it now.
+Error: resource Deployment/cert-manager/cert-manager-cainjector not ready. status: InProgress, message: Available: 0/1
+resource Deployment/cert-manager/cert-manager not ready. status: InProgress, message: Available: 0/1
+resource Deployment/cert-manager/cert-manager-webhook not ready. status: InProgress, message: Available: 0/1
+context deadline exceeded
+(base) Neetus-Laptop:scripts neetupal$ 
+
+
+==========
+
+
+  
