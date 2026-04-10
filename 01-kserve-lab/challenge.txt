@@ -27,4 +27,25 @@ context deadline exceeded
 ==========
 
 
+
+   ✅ KServe CRDs + Controller applied
+
+🔧 [2/3] Installing KServe built-in serving runtimes...
+   (This adds support for sklearn, xgboost, tensorflow, pytorch, etc.)
+
+clusterstoragecontainer.serving.kserve.io/default serverside-applied
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+Error from server (InternalError): Internal error occurred: failed calling webhook "clusterservingruntime.kserve-webhook-server.validator": failed to call webhook: Post "https://kserve-webhook-server-service.kserve.svc:443/validate-serving-kserve-io-v1alpha1-clusterservingruntime?timeout=10s": no endpoints available for service "kserve-webhook-server-service"
+(base) ➜  scripts git:(main) ✗ 
+
+
+=======================
   
