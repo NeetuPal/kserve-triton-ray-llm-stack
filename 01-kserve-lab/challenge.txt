@@ -48,4 +48,17 @@ Error from server (InternalError): Internal error occurred: failed calling webho
 
 
 =======================
+
+
+
+📁 Creating istio-system namespace...
+   (namespace already exists)
+
+🔧 [1/3] Installing Istio Base (CRDs)...
+level=WARN msg="upgrade failed" name=istio-base error="conflict occurred while applying object /istiod-default-validator admissionregistration.k8s.io/v1, Kind=ValidatingWebhookConfiguration: Apply failed with 1 conflict: conflict with \"pilot-discovery\" using admissionregistration.k8s.io/v1: .webhooks[name=\"validation.istio.io\"].failurePolicy"
+Error: UPGRADE FAILED: conflict occurred while applying object /istiod-default-validator admissionregistration.k8s.io/v1, Kind=ValidatingWebhookConfiguration: Apply failed with 1 conflict: conflict with "pilot-discovery" using admissionregistration.k8s.io/v1: .webhooks[name="validation.istio.io"].failurePolicy
+(base) ➜  scripts git:(main) ✗ 
+
+
+===================
   
